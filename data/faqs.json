@@ -1,0 +1,50 @@
+[
+  {
+    "id": "faq_001",
+    "question": "What does All-in-1 mean?",
+    "answer": "Cookd says its recipe mixes contain the essential spices and, where required, ginger, garlic and tamarind, with salt pre-balanced. The customer generally adds the fresh ingredients for the dish.",
+    "category": "catalog"
+  },
+  {
+    "id": "faq_002",
+    "question": "Do I need to add extra spice powders?",
+    "answer": "For Cookd All-in-1 recipe mixes, the product pages say no additional spice powders are required; customers add the fresh ingredients listed for the dish.",
+    "category": "catalog"
+  },
+  {
+    "id": "faq_003",
+    "question": "Are Cookd products vegetarian?",
+    "answer": "Cookd states that its products are 100% vegetarian; meat, fish and egg shown in dishes are serving suggestions and are not included in the pack.",
+    "category": "catalog"
+  },
+  {
+    "id": "faq_004",
+    "question": "Which masala should I choose for chicken?",
+    "answer": "Cookd's masala guide points to Chicken Masala for everyday chicken curry, and options such as Madras 65, Chettinad Chicken Masala, Pallipalayam Masala or Madurai Chukka for dry or semi-dry styles.",
+    "category": "recommendation"
+  },
+  {
+    "id": "faq_005",
+    "question": "Which masala is for mutton?",
+    "answer": "Cookd's guide points to Mutton Masala for curries and Madurai Chukka, Kerala Roast or Meat Ularthu for dry-style dishes.",
+    "category": "recommendation"
+  },
+  {
+    "id": "faq_006",
+    "question": "Which masala is for fish?",
+    "answer": "Cookd's guide recommends Fish Curry Masala or Kerala Fish Curry Masala for fish curries, and Fish Fry Masala or Marina Fish Fry Kit for crispy fried fish.",
+    "category": "recommendation"
+  },
+  {
+    "id": "faq_007",
+    "question": "What is the Dindigul Biryani Kit?",
+    "answer": "Cookd describes it as a kit containing Dindigul biryani paste, optional seeraga samba rice and seasoning oil. The with-rice kit yields about 1.3 kg of biryani and serves 3.",
+    "category": "product"
+  },
+  {
+    "id": "faq_008",
+    "question": "What is the Malabar Biryani Kit?",
+    "answer": "Cookd describes it as a Kerala-style kit using fragrant Jeerakasala rice and a balanced whole-spice profile. It can be cooked with chicken, mutton or vegetables.",
+    "category": "product"
+  }
+]

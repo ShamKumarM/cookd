@@ -1,0 +1,2562 @@
+[
+  {
+    "text": "suggest a recipe with chicken tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "which masala should i use for family dinner this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "see where order from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "check the status of delivery from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "suggest something for mutton roast this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can you show my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "suggest a recipe with fish for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what can i make with chicken for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what can i make with chicken and curd for dinner",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "give me information about Fish Fry Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "can you tell me about whether Cookd products are vegetarian before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i want to report a bad packaging",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "i want to report a wrong condition on arrival from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "which masala should i use for mutton curry for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "see where delivery for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can you explain Ambur Biryani in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "i need help with a damaged product that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "check the status of Cookd order for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "get an update on purchase from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what are the details of Chicken Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "i need help with a wrong condition on arrival with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "i want to report a damaged product with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can i get my money back after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what are the details of Chettinad Masala in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "find order right now",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "follow order please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "help me choose a product for fish curry for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "is it possible to cancel my order please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i want to complain about a leaking packet that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "how do i refund before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can you tell me about whether Cookd products are vegetarian",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can i raise a broken seal",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what can i cook with fish and rice for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to open my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "help me open my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "what is the storage instructions",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can i raise a broken box with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "which masala should i use for fish fry",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i want to show my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i have a damaged product with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "how do i return please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "please purchase this",
+    "intent": "cart_action"
+  },
+  {
+    "text": "do i need to know how to whether i need extra spice powders please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "recommend a Cookd product for fish curry",
+    "intent": "recommendation"
+  },
+  {
+    "text": "track parcel today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "do i need to know how to store the masala before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i need help with a bad packaging with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "i have a broken box that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can you tell me about All-in-1 means please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what are the details of Madras 65 please",
+    "intent": "product_question"
+  },
+  {
+    "text": "get an update on order today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can you explain Fish Fry Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "give me information about Kerala Roast Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "give me information about Dindigul Biryani",
+    "intent": "product_question"
+  },
+  {
+    "text": "find delivery today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please help me cancel my order please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "please register a broken box",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can i return for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "are cookd products vegetarian",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what are the details of Madras 65 and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to get my money back please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what is store an opened masala please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "follow package right now",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "find a recipe for fish and rice quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "add two packs to my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "see where package from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "see where Cookd order please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what can i make with chicken and curd",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "checkout please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "add chicken masala to my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "add this to my cart now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "please explain whether Cookd products are vegetarian after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can you open my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "help me choose a product for chicken 65 for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i need help with a broken box that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "locate package please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "show me how to cook chicken and rice tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "help me add this to my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "can i cancel my order please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "how should i whether i need extra spice powders please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what are the details of Chicken Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "recommend a Cookd product for chicken curry for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can you open my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "give me information about Mutton Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "what is Chicken Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "what can i make with fish and rice for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can you tell me about whether Cookd products are vegetarian for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what can i cook with chicken tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to add this to my cart now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "help me choose a product for biryani for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "please help me get my money back for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "get an update on order from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "how should i whether i need extra salt after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can you explain Madras 65",
+    "intent": "product_question"
+  },
+  {
+    "text": "i need to get my money back after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what can i cook with fish for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "help me show my cart from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "help me add Chicken Masala to my cart now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "please open my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "find a recipe for fish tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "how should i whether Cookd products are vegetarian for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "find a recipe for fish for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "how do i get my money back for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can you tell me about whether beginners can use Cookd mixes please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what can i cook with fish and rice",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "is it possible to refund for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "find purchase for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please explain store an opened masala after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "recommend a Cookd product for mutton curry this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i want to refund after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "help me choose a product for chicken 65 for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "help me buy this now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "recommend a Cookd product for mutton roast for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can you explain Mutton Masala in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "check the status of shipment for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "do i need to know how to store the masala",
+    "intent": "general_faq"
+  },
+  {
+    "text": "add Chicken Masala to my cart now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "what are the details of Kerala Roast Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "please explain All-in-1 means",
+    "intent": "general_faq"
+  },
+  {
+    "text": "get an update on delivery today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can i raise a bad packaging with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what can i make with chicken for dinner",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i need help with a broken seal that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what should i buy for fish curry for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "what should i buy for mutton roast for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i have a quality issue with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "how should i whether i need extra salt please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "track delivery for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can you explain Kerala Roast Masala in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "do i need to know how to what ingredients i need to add for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can i raise a torn pouch from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can i cancel my purchase after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can i raise a wrong condition on arrival with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "follow shipment from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please explain All-in-1 means after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i have a damaged product that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "please register a leaking packet that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "do i need to know how to whether beginners can use Cookd mixes for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "which masala should i use for family dinner for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "find a recipe for fish and rice for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "please register a broken box that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can you explain Chicken Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to report a bad packaging with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can i cancel my order for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "get an update on order right now",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "help me add Chicken Masala to my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "please purchase this for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "how do i return",
+    "intent": "return_refund"
+  },
+  {
+    "text": "tell me about Mutton Masala for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "what are the details of Ambur Biryani please",
+    "intent": "product_question"
+  },
+  {
+    "text": "check the status of purchase please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "help me choose a product for mutton curry for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "how do i cancel my purchase before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "recommend a Cookd product for family dinner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "what is Kerala Roast Masala for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "give me a recipe using chicken and rice for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "purchase this",
+    "intent": "cart_action"
+  },
+  {
+    "text": "see where order for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "see where order today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "which masala should i use for family dinner for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "check the status of package from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "i want to buy this please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "checkout for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "give me a recipe using chicken and curd",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what can i make with fish for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what is All-in-1 means before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "please add two packs to my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i need help with a damaged packet",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "track delivery please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please explain the storage instructions after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what can i make with chicken and curd for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can you tell me about store an opened masala please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "tell me about Chicken Masala for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "show me how to cook chicken quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "find delivery for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "is it possible to get my money back for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "tell me about Chettinad Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "what is whether Cookd products are vegetarian please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "help me choose a product for mutton roast for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "add two packs to my cart now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "give me information about Kerala Roast Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "can you add this to my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "give me a recipe using chicken and rice for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "how do i refund please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "find Cookd order please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "suggest something for mutton curry for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "please checkout for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "how should i whether Cookd products are vegetarian",
+    "intent": "general_faq"
+  },
+  {
+    "text": "how should i what ingredients i need to add",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i need help with a broken seal from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "do i need to know how to store the masala after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i have a bad packaging that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can i cancel my order for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "help me choose a product for family dinner for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "help me choose a product for family dinner this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i need to cancel my purchase please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what is Chettinad Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to purchase this",
+    "intent": "cart_action"
+  },
+  {
+    "text": "what is whether beginners can use Cookd mixes please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "suggest something for mutton curry for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "how do i cancel my order for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i need to return after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "give me a recipe using fish and rice quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can you tell me about the storage instructions please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what is Chicken Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "give me information about Mutton Masala for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "can i get my money back",
+    "intent": "return_refund"
+  },
+  {
+    "text": "do i need to know how to whether i need extra salt before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "help me add Dindigul Biryani to my cart from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "suggest something for biryani this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can you tell me about whether beginners can use Cookd mixes",
+    "intent": "general_faq"
+  },
+  {
+    "text": "check the status of package for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "find a recipe for chicken and rice for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to refund before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what is whether i need extra salt please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i want to open my cart now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "get an update on Cookd order from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what is the storage instructions before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "please register a damaged product that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what is Fish Fry Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "give me information about Ambur Biryani please",
+    "intent": "product_question"
+  },
+  {
+    "text": "what are the details of Mutton Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "tell me about Madras 65 for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to add two packs to my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "please explain whether Cookd products are vegetarian for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "give me information about Ambur Biryani and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "what are the details of Fish Fry Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "how do i return for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "do i need to know how to store an opened masala after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "suggest something for chicken 65",
+    "intent": "recommendation"
+  },
+  {
+    "text": "see where Cookd order from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "do i need to know how to All-in-1 means for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what are the details of Dindigul Biryani please",
+    "intent": "product_question"
+  },
+  {
+    "text": "please add Chicken Masala to my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i want to cancel my order before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can you explain Chettinad Masala for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to complain about a broken box from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "locate purchase for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "give me a recipe using fish and rice",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what can i make with mutton for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to complain about a broken seal",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "i want to return after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "suggest a recipe with chicken and curd for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i need help with a broken seal",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can you open my cart from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "give me information about Chettinad Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "i need to cancel my purchase for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "please register a broken seal",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "give me a recipe using rice for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "give me a recipe using fish quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "see where parcel today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can you tell me about whether i need extra salt for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "follow order right now",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "help me choose a product for fish curry this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "suggest a recipe with chicken and curd for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what should i buy for biryani for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can you open my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "help me remove this from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "recommend a Cookd product for fish curry for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "is it possible to get my money back",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i have a broken box",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "please add this to my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i want to purchase this please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i want to report a broken box",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "locate order from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "help me choose a product for chicken 65 for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can i send this product back before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i have a bad packaging",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "recommend a Cookd product for family dinner this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "how should i store an opened masala",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what are the details of Dindigul Biryani for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "what is whether Cookd products are vegetarian",
+    "intent": "general_faq"
+  },
+  {
+    "text": "check the status of Cookd order for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "track Cookd order please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "i want to buy this for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "help me purchase this please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "what should i buy for fish curry for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "suggest a recipe with chicken and curd tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "show me how to cook fish tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i need help with a bad packaging from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "recommend a Cookd product for chicken curry this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can you explain Dindigul Biryani and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "suggest something for fish curry for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "what should i buy for fish fry for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "what can i make with chicken and rice tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "find Cookd order for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "i have a complaint",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "suggest something for biryani for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "please explain store the masala",
+    "intent": "general_faq"
+  },
+  {
+    "text": "suggest a recipe with fish and rice tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "please register a leaking packet with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "show me how to cook chicken and curd tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "how should i All-in-1 means for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "help me choose a product for family dinner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i want to cancel my purchase for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can you checkout now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "is it possible to cancel my purchase for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "purchase this now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "please help me cancel my purchase for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "show me how to cook rice",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "please add Dindigul Biryani to my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "give me a recipe using chicken and curd quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "give me information about Madras 65",
+    "intent": "product_question"
+  },
+  {
+    "text": "what should i buy for chicken curry this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "what should i buy for mutton curry this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "which masala should i use for mutton curry for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "give me a recipe using mutton for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "is it possible to send this product back after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what are the details of Ambur Biryani in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "suggest something for chicken biryani for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i want to open my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "what can i cook with mutton quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "how should i All-in-1 means before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i want to complain about a damaged packet",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "suggest something for mutton roast",
+    "intent": "recommendation"
+  },
+  {
+    "text": "help me remove this from my cart from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "what should i buy for mutton curry for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "get an update on parcel today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "show me how to cook chicken for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "help me choose a product for mutton roast",
+    "intent": "recommendation"
+  },
+  {
+    "text": "what is Chettinad Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to return this",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i want to cancel my purchase before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "locate package today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please explain All-in-1 means for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "checkout now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i want to cancel my order for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "find order please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can you explain Madras 65 for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "please explain whether Cookd products are vegetarian",
+    "intent": "general_faq"
+  },
+  {
+    "text": "add Dindigul Biryani to my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "add this to my cart from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "follow Cookd order for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "find a recipe for chicken and curd for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can you explain Chicken Masala in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "what is Madras 65 please",
+    "intent": "product_question"
+  },
+  {
+    "text": "what should i buy for quick dinner this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "how do i cancel my order after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i want to add Dindigul Biryani to my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "recommend a Cookd product for quick dinner this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "how do i cancel my order before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "get an update on order for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what are the details of Chettinad Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "i have a damaged product with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "please explain whether i need extra salt for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "tell me about Chicken Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to report a broken box with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what can i cook with chicken and rice for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to add Dindigul Biryani to my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "give me information about Ambur Biryani in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "please purchase this from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "follow package please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what can i cook with mutton for dinner",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what are the details of Ambur Biryani",
+    "intent": "product_question"
+  },
+  {
+    "text": "is it possible to refund for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "please register a wrong condition on arrival that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "give me information about Chettinad Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "can you purchase this now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "can you remove this from my cart from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "recommend a Cookd product for chicken biryani for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "track order from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "i have a leaking packet",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what should i buy for fish fry this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "what can i make with mutton for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "please help me get my money back please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "help me choose a product for biryani for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "check the status of purchase for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "get an update on package today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please help me get my money back before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "please register a damaged product from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "follow package from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can you add two packs to my cart now",
+    "intent": "cart_action"
+  },
+  {
+    "text": "what are the details of Chicken Masala in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "what is Kerala Roast Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to get my money back after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "see where delivery please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "how should i store the masala for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "give me information about Chicken Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "what is whether beginners can use Cookd mixes after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "recommend a Cookd product for quick dinner for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "please help me get my money back for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "add two packs to my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "how should i the storage instructions please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "give me a recipe using fish for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what should i buy for family dinner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i need help with a bad packaging that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "get an update on Cookd order please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "track purchase for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please explain whether i need extra spice powders",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can you tell me about whether beginners can use Cookd mixes before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "find parcel for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "give me a recipe using chicken quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "is it possible to cancel my order for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "help me add two packs to my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "track delivery today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what are the details of Fish Fry Masala in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "can i send this product back please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "follow order for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "give me a recipe using chicken and rice tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can you tell me about store an opened masala after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "open my cart from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i want to add this to my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "how do i get my money back after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can i get my money back for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "give me information about Kerala Roast Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "follow parcel from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "which masala should i use for fish fry for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i need help with a leaking packet that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "help me checkout from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "can you buy this please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "please add this to my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "how do i send this product back for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can i return for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "help me checkout please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i want to send this product back please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can you tell me about whether i need extra salt after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can i raise a bad packaging with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "how should i the shelf life is please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can i send this product back for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can i refund after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i want to cancel my order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what is store the masala after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can you explain Chicken Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "please register a broken box from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "is it possible to cancel my purchase before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "which masala should i use for chicken 65 this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "suggest something for family dinner for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "give me information about Malabar Biryani please",
+    "intent": "product_question"
+  },
+  {
+    "text": "can you buy this for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "please register a quality issue from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can you explain Dindigul Biryani",
+    "intent": "product_question"
+  },
+  {
+    "text": "how should i the shelf life is after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "please remove this from my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i have a wrong condition on arrival with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "do i need to know how to the storage instructions for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what is Malabar Biryani for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "what should i buy for chicken 65 for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "how should i what ingredients i need to add after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "help me choose a product for quick dinner for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "find a recipe for rice tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "help me choose a product for chicken curry for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "what are the details of Chicken Masala for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "what should i buy for chicken curry",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i want to report a quality issue with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what can i cook with chicken and curd quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "find a fish recipe",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can i cancel my purchase before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "show me how to cook chicken for dinner",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can you tell me about store an opened masala for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i want to send this product back before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i need to refund for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "how do i cancel my order for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "which masala should i use for family dinner for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can i raise a leaking packet from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what can i make with chicken and rice for dinner",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i need help with a broken box from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "i want to send this product back after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "which masala should i use for chicken biryani",
+    "intent": "recommendation"
+  },
+  {
+    "text": "suggest a recipe with chicken and curd for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to complain about a damaged packet from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "i want to report a damaged product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what can i cook with chicken and rice",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what is Malabar Biryani please",
+    "intent": "product_question"
+  },
+  {
+    "text": "recommend a Cookd product for chicken 65 for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i have a wrong condition on arrival that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "find a recipe for mutton for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to report a damaged product that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "i want to report a damaged product from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "help me choose a product for chicken biryani for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "get an update on order for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "add Chicken Masala to my cart for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i need to send this product back",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what is Mutton Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "locate order right now",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please register a damaged packet that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what can i cook with rice for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to add this to my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "check the status of shipment for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "is it possible to return before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "do i need to know how to whether Cookd products are vegetarian before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "suggest something for mutton roast for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "how should i whether beginners can use Cookd mixes",
+    "intent": "general_faq"
+  },
+  {
+    "text": "show me how to cook mutton tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "give me information about Dindigul Biryani and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "give me a recipe using fish and rice for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "what can i cook with chicken for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "buy this for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i have a broken seal",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "show me how to cook fish for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to report a leaking packet from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "find a recipe for chicken and curd for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "recommend a Cookd product for quick dinner for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "how should i the storage instructions before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "suggest something for fish fry for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i need help with a quality issue from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "suggest something for quick dinner for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i need to cancel my order please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "follow delivery please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "tell me about Kerala Roast Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to checkout for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i want to report a broken box that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "how do i send this product back please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what should i buy for fish curry for a family",
+    "intent": "recommendation"
+  },
+  {
+    "text": "help me choose a product for family dinner for medium spice",
+    "intent": "recommendation"
+  },
+  {
+    "text": "do i need to know how to the shelf life is",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i need to get my money back",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can you tell me about store the masala after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "please help me send this product back before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "how should i whether Cookd products are vegetarian before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "check the status of shipment from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please register a damaged product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "locate parcel for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "see where shipment from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please register a torn pouch from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "i want to add Chicken Masala to my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "how do i cancel my purchase for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i want to complain about a quality issue with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what is the shelf life is",
+    "intent": "general_faq"
+  },
+  {
+    "text": "which masala should i use for chicken biryani for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "please register a damaged packet with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can you add two packs to my cart from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "find package from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "check the status of package for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what can i make with rice for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i want to show my cart from my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "suggest a recipe with chicken for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "suggest a recipe with rice for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i need to cancel my order for my purchase",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what are the details of Mutton Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "show me how to cook chicken for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can you explain Ambur Biryani",
+    "intent": "product_question"
+  },
+  {
+    "text": "i want to remove this from my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "track order today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "see where order for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can you checkout for me",
+    "intent": "cart_action"
+  },
+  {
+    "text": "suggest a recipe with chicken and rice quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "tell me about Dindigul Biryani please",
+    "intent": "product_question"
+  },
+  {
+    "text": "what can i make with chicken and rice for lunch",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "i need to refund",
+    "intent": "return_refund"
+  },
+  {
+    "text": "do i need to know how to what ingredients i need to add please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "find a recipe for rice for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "tell me about Chicken Masala in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "get an update on delivery for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "locate purchase please",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what is Chicken Masala for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "follow purchase for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "how do i refund after delivery",
+    "intent": "return_refund"
+  },
+  {
+    "text": "what can i make with fish tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "do i need to know how to whether beginners can use Cookd mixes",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i want to complain about a wrong condition on arrival that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "locate parcel for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "help me choose a product for chicken biryani for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can you buy this",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i need help with a broken box",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "help me purchase this",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i want to complain about a leaking packet",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "please explain the storage instructions for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "add Chicken Masala to my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "help me choose a product for mutton roast for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "please purchase this please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i need to return for this order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "can i return before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "give me a recipe using fish for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "how should i store the masala before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "please register a bad packaging with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "show me how to cook fish for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "give me information about Malabar Biryani in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "what are the details of Malabar Biryani and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "i have a broken seal that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "how should i the storage instructions after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what is whether beginners can use Cookd mixes for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "suggest a recipe with fish for four people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "how should i All-in-1 means after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "help me choose a product for mutton curry",
+    "intent": "recommendation"
+  },
+  {
+    "text": "find a recipe for mutton quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "find order today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what should i buy for family dinner this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "is it possible to get my money back before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "track purchase from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "find shipment for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can you add Dindigul Biryani to my cart",
+    "intent": "cart_action"
+  },
+  {
+    "text": "what should i buy for family dinner for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "is it possible to refund before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "how do i cancel my order",
+    "intent": "return_refund"
+  },
+  {
+    "text": "i want to complain about a quality issue with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "can i raise a torn pouch that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "please register a torn pouch with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "what is whether i need extra salt before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "how should i store an opened masala please",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i want to report a damaged packet with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "suggest a recipe with fish and rice for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "find a recipe for fish quickly",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can you tell me about whether i need extra spice powders after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "follow delivery today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "see where shipment for me",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "which masala should i buy for chicken curry",
+    "intent": "recommendation"
+  },
+  {
+    "text": "give me information about Mutton Masala in simple terms",
+    "intent": "product_question"
+  },
+  {
+    "text": "is it possible to refund please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "please register a bad packaging that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "track shipment today",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "what is store an opened masala after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can you explain Fish Fry Masala for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "give me a recipe using mutton for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "find delivery right now",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "please help me cancel my purchase please",
+    "intent": "return_refund"
+  },
+  {
+    "text": "find a recipe for fish and rice tonight",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "can you explain Madras 65 and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "give me information about Madras 65 and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "get an update on Cookd order for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "do i need to know how to whether i need extra salt after opening the packet",
+    "intent": "general_faq"
+  },
+  {
+    "text": "what should i buy for mutton roast for a beginner",
+    "intent": "recommendation"
+  },
+  {
+    "text": "i want to report a bad packaging from my recent delivery",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "tell me about Mutton Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "help me choose a product for mutton curry this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "recommend a Cookd product for mutton curry",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can you explain Fish Fry Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "help me show my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "show me how to cook fish and rice",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "help me choose a product for family dinner for mild food",
+    "intent": "recommendation"
+  },
+  {
+    "text": "can you remove this from my cart please",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i have a torn pouch with the product",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "suggest a recipe with chicken for three people",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "how should i whether beginners can use Cookd mixes before cooking",
+    "intent": "general_faq"
+  },
+  {
+    "text": "i want to complain about a broken box that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "i want to complain about a leaking packet with my order",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "find delivery from my last purchase",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "can you tell me about store the masala for Cookd products",
+    "intent": "general_faq"
+  },
+  {
+    "text": "can you explain Mutton Masala please",
+    "intent": "product_question"
+  },
+  {
+    "text": "what is Mutton Masala and how it is used",
+    "intent": "product_question"
+  },
+  {
+    "text": "what are the details of Malabar Biryani please",
+    "intent": "product_question"
+  },
+  {
+    "text": "which masala should i use for fish fry this weekend",
+    "intent": "recommendation"
+  },
+  {
+    "text": "find a recipe for chicken and curd",
+    "intent": "recipe_finding"
+  },
+  {
+    "text": "please register a broken seal that arrived today",
+    "intent": "feedback_complaint"
+  },
+  {
+    "text": "tell me about Chettinad Masala for me",
+    "intent": "product_question"
+  },
+  {
+    "text": "help me buy this",
+    "intent": "cart_action"
+  },
+  {
+    "text": "i want to return before it ships",
+    "intent": "return_refund"
+  },
+  {
+    "text": "tell me about Mutton Masala",
+    "intent": "product_question"
+  },
+  {
+    "text": "recommend a cookd product",
+    "intent": "recommendation"
+  },
+  {
+    "text": "see where package for my latest order",
+    "intent": "order_tracking"
+  },
+  {
+    "text": "i need to get my money back for my purchase",
+    "intent": "return_refund"
+  }
+]
