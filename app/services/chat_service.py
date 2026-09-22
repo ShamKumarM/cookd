@@ -1,7 +1,7 @@
 from app.classifier.predict import IntentClassifier
 from app.rag.retriever import CookdRetriever
 from app.llm.groq_client import generate_response
-
+from app.classifier.confidence import ConfidenceDecision
 from app.tools.supabase_tools import (
     track_latest_order_by_phone,
 )
@@ -12,7 +12,7 @@ class ChatService:
     def __init__(self):
         self.classifier = IntentClassifier()
         self.retriever = CookdRetriever()
-
+        self.confidence_checker = ConfidenceDecision()
 
     # -----------------------------------------------------
     # RAG CONTEXT BUILDER
@@ -63,7 +63,21 @@ METADATA:
 
         intent = prediction["intent"]
         confidence = prediction["confidence"]
+        decision = self.confidence_checker.evaluate(prediction)
+        if decision["action"] == "clarify":
 
+            return {
+                "success": True,
+                "intent": intent,
+                "confidence": confidence,
+                "action": "clarify",
+                "reason": decision["reason"],
+                "answer": (
+                    "I can help with products, recipes, "
+                    "orders, recommendations, or support. "
+                    "What would you like help with? 😊"
+                )
+            }
 
         # -------------------------------------------------
         # 2. ORDER TRACKING

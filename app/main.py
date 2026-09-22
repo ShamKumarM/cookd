@@ -202,6 +202,27 @@ def test_latest_order(customer_id: str):
         "order": order
     }
 
+#============================================================
+# TEST: CLASSIFIER
+#============================================================   
+
+@app.post("/test/classifier")
+def test_classifier(request: ChatRequest):
+
+    prediction = chat_service.classifier.predict(
+        request.message
+    )
+
+    decision = chat_service.confidence_checker.evaluate(
+        prediction
+    )
+
+    return {
+        "message": request.message,
+        "prediction": prediction,
+        "decision": decision
+    }
+
 
 # =========================================================
 # ROUTER TEST
