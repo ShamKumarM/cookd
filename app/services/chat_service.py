@@ -1,7 +1,10 @@
+import uuid
+
 from app.classifier.predict import IntentClassifier
+from app.classifier.confidence import ConfidenceDecision
 from app.rag.retriever import CookdRetriever
 from app.llm.groq_client import generate_response
-from app.classifier.confidence import ConfidenceDecision
+from app.memory.conversation_memory import ConversationMemory
 from app.tools.supabase_tools import (
     track_latest_order_by_phone,
 )
@@ -10,13 +13,15 @@ from app.tools.supabase_tools import (
 class ChatService:
 
     def __init__(self):
+
         self.classifier = IntentClassifier()
         self.retriever = CookdRetriever()
         self.confidence_checker = ConfidenceDecision()
+        self.memory = ConversationMemory()
 
-    # -----------------------------------------------------
+    # =====================================================
     # RAG CONTEXT BUILDER
-    # -----------------------------------------------------
+    # =====================================================
 
     def build_rag_context(self, results):
 
@@ -44,58 +49,168 @@ METADATA:
 
         return "\n".join(context_parts)
 
+    # =====================================================
+    # COMBINE MEMORY + VERIFIED INFORMATION
+    # =====================================================
 
-    # -----------------------------------------------------
+    def build_combined_context(
+        self,
+        memory_context,
+        verified_context
+    ):
+
+        return f"""
+CONVERSATION HISTORY:
+
+{memory_context}
+
+
+VERIFIED INFORMATION:
+
+{verified_context}
+"""
+
+    # =====================================================
+    # SAVE CONVERSATION EXCHANGE
+    # =====================================================
+
+    def save_exchange(
+        self,
+        conversation_id,
+        user_message,
+        assistant_message,
+        intent,
+        customer_id=None,
+        channel="api"
+    ):
+
+        # Save user message
+        self.memory.save_message(
+            conversation_id=conversation_id,
+            role="user",
+            message=user_message,
+            customer_id=customer_id,
+            intent=intent,
+            channel=channel
+        )
+
+        # Save assistant response
+        self.memory.save_message(
+            conversation_id=conversation_id,
+            role="assistant",
+            message=assistant_message,
+            customer_id=customer_id,
+            intent=intent,
+            channel=channel,
+            ai_resolved=True
+        )
+
+    # =====================================================
     # MAIN CHAT PROCESSOR
-    # -----------------------------------------------------
+    # =====================================================
 
     def process_message(
         self,
         message: str,
-        customer_phone: str | None = None
+        customer_phone: str | None = None,
+        conversation_id: str | None = None
     ):
 
         # -------------------------------------------------
-        # 1. CLASSIFY
+        # 0. CREATE CONVERSATION ID
         # -------------------------------------------------
 
-        prediction = self.classifier.predict(message)
+        if not conversation_id:
+
+            conversation_id = str(
+                uuid.uuid4()
+            )
+
+        # -------------------------------------------------
+        # 1. CLASSIFY USER MESSAGE
+        # -------------------------------------------------
+
+        prediction = self.classifier.predict(
+            message
+        )
 
         intent = prediction["intent"]
         confidence = prediction["confidence"]
-        decision = self.confidence_checker.evaluate(prediction)
+
+        # -------------------------------------------------
+        # 2. CONFIDENCE CHECK
+        # -------------------------------------------------
+
+        decision = self.confidence_checker.evaluate(
+            prediction
+        )
+
+        # -------------------------------------------------
+        # 3. LOAD PREVIOUS CONVERSATION
+        # -------------------------------------------------
+
+        memory_context = self.memory.build_context(
+            conversation_id
+        )
+
+        # -------------------------------------------------
+        # 4. HANDLE LOW CONFIDENCE
+        # -------------------------------------------------
+
         if decision["action"] == "clarify":
+
+            answer = (
+                "I can help with products, recipes, "
+                "orders, recommendations, or support. "
+                "What would you like help with? 😊"
+            )
+
+            self.save_exchange(
+                conversation_id=conversation_id,
+                user_message=message,
+                assistant_message=answer,
+                intent=intent,
+                channel="api"
+            )
 
             return {
                 "success": True,
+                "conversation_id": conversation_id,
                 "intent": intent,
                 "confidence": confidence,
                 "action": "clarify",
                 "reason": decision["reason"],
-                "answer": (
-                    "I can help with products, recipes, "
-                    "orders, recommendations, or support. "
-                    "What would you like help with? 😊"
-                )
+                "answer": answer
             }
 
-        # -------------------------------------------------
-        # 2. ORDER TRACKING
-        # -------------------------------------------------
+        # =================================================
+        # 5. ORDER TRACKING → SUPABASE
+        # =================================================
 
         if intent == "order_tracking":
 
             if not customer_phone:
 
+                answer = (
+                    "Please provide your phone number "
+                    "so I can check your order."
+                )
+
+                self.save_exchange(
+                    conversation_id=conversation_id,
+                    user_message=message,
+                    assistant_message=answer,
+                    intent=intent,
+                    channel="api"
+                )
+
                 return {
                     "success": False,
+                    "conversation_id": conversation_id,
                     "intent": intent,
                     "confidence": confidence,
                     "error": "customer_phone_required",
-                    "message": (
-                        "Please provide your phone number "
-                        "so I can check your order."
-                    )
+                    "message": answer
                 }
 
             result = track_latest_order_by_phone(
@@ -104,17 +219,34 @@ METADATA:
 
             if not result["success"]:
 
+                answer = (
+                    "I couldn't find an order for that "
+                    "customer information."
+                )
+
+                self.save_exchange(
+                    conversation_id=conversation_id,
+                    user_message=message,
+                    assistant_message=answer,
+                    intent=intent,
+                    channel="api"
+                )
+
                 return {
                     "success": False,
+                    "conversation_id": conversation_id,
                     "intent": intent,
                     "confidence": confidence,
-                    "error": result["error"]
+                    "error": result["error"],
+                    "message": answer
                 }
 
             customer = result["customer"]
             order = result["order"]
 
-            context = f"""
+            customer_id = customer.get("id")
+
+            verified_context = f"""
 CUSTOMER INFORMATION:
 
 Name: {customer.get("name")}
@@ -131,13 +263,28 @@ Order Created: {order.get("created_at")}
 Last Updated: {order.get("updated_at")}
 """
 
+            combined_context = self.build_combined_context(
+                memory_context,
+                verified_context
+            )
+
             answer = generate_response(
                 user_message=message,
-                context=context
+                context=combined_context
+            )
+
+            self.save_exchange(
+                conversation_id=conversation_id,
+                user_message=message,
+                assistant_message=answer,
+                intent=intent,
+                customer_id=customer_id,
+                channel="api"
             )
 
             return {
                 "success": True,
+                "conversation_id": conversation_id,
                 "intent": intent,
                 "confidence": confidence,
                 "source": "supabase",
@@ -145,10 +292,9 @@ Last Updated: {order.get("updated_at")}
                 "order": order
             }
 
-
-        # -------------------------------------------------
-        # 3. PRODUCT QUESTION
-        # -------------------------------------------------
+        # =================================================
+        # 6. PRODUCT QUESTION → CHROMA
+        # =================================================
 
         if intent == "product_question":
 
@@ -158,15 +304,31 @@ Last Updated: {order.get("updated_at")}
                 doc_type="product"
             )
 
-            context = self.build_rag_context(results)
+            verified_context = self.build_rag_context(
+                results
+            )
+
+            combined_context = self.build_combined_context(
+                memory_context,
+                verified_context
+            )
 
             answer = generate_response(
                 user_message=message,
-                context=context
+                context=combined_context
+            )
+
+            self.save_exchange(
+                conversation_id=conversation_id,
+                user_message=message,
+                assistant_message=answer,
+                intent=intent,
+                channel="api"
             )
 
             return {
                 "success": True,
+                "conversation_id": conversation_id,
                 "intent": intent,
                 "confidence": confidence,
                 "source": "chroma",
@@ -174,10 +336,9 @@ Last Updated: {order.get("updated_at")}
                 "retrieved_results": results
             }
 
-
-        # -------------------------------------------------
-        # 4. RECIPE FINDING
-        # -------------------------------------------------
+        # =================================================
+        # 7. RECIPE FINDING → CHROMA
+        # =================================================
 
         if intent == "recipe_finding":
 
@@ -187,15 +348,31 @@ Last Updated: {order.get("updated_at")}
                 doc_type="recipe"
             )
 
-            context = self.build_rag_context(results)
+            verified_context = self.build_rag_context(
+                results
+            )
+
+            combined_context = self.build_combined_context(
+                memory_context,
+                verified_context
+            )
 
             answer = generate_response(
                 user_message=message,
-                context=context
+                context=combined_context
+            )
+
+            self.save_exchange(
+                conversation_id=conversation_id,
+                user_message=message,
+                assistant_message=answer,
+                intent=intent,
+                channel="api"
             )
 
             return {
                 "success": True,
+                "conversation_id": conversation_id,
                 "intent": intent,
                 "confidence": confidence,
                 "source": "chroma",
@@ -203,10 +380,9 @@ Last Updated: {order.get("updated_at")}
                 "retrieved_results": results
             }
 
-
-        # -------------------------------------------------
-        # 5. GENERAL FAQ
-        # -------------------------------------------------
+        # =================================================
+        # 8. GENERAL FAQ → CHROMA
+        # =================================================
 
         if intent == "general_faq":
 
@@ -216,15 +392,31 @@ Last Updated: {order.get("updated_at")}
                 doc_type="faq"
             )
 
-            context = self.build_rag_context(results)
+            verified_context = self.build_rag_context(
+                results
+            )
+
+            combined_context = self.build_combined_context(
+                memory_context,
+                verified_context
+            )
 
             answer = generate_response(
                 user_message=message,
-                context=context
+                context=combined_context
+            )
+
+            self.save_exchange(
+                conversation_id=conversation_id,
+                user_message=message,
+                assistant_message=answer,
+                intent=intent,
+                channel="api"
             )
 
             return {
                 "success": True,
+                "conversation_id": conversation_id,
                 "intent": intent,
                 "confidence": confidence,
                 "source": "chroma",
@@ -232,10 +424,9 @@ Last Updated: {order.get("updated_at")}
                 "retrieved_results": results
             }
 
-
-        # -------------------------------------------------
-        # 6. RECOMMENDATION
-        # -------------------------------------------------
+        # =================================================
+        # 9. RECOMMENDATION → CHROMA
+        # =================================================
 
         if intent == "recommendation":
 
@@ -244,15 +435,31 @@ Last Updated: {order.get("updated_at")}
                 top_k=5
             )
 
-            context = self.build_rag_context(results)
+            verified_context = self.build_rag_context(
+                results
+            )
+
+            combined_context = self.build_combined_context(
+                memory_context,
+                verified_context
+            )
 
             answer = generate_response(
                 user_message=message,
-                context=context
+                context=combined_context
+            )
+
+            self.save_exchange(
+                conversation_id=conversation_id,
+                user_message=message,
+                assistant_message=answer,
+                intent=intent,
+                channel="api"
             )
 
             return {
                 "success": True,
+                "conversation_id": conversation_id,
                 "intent": intent,
                 "confidence": confidence,
                 "source": "chroma",
@@ -260,18 +467,28 @@ Last Updated: {order.get("updated_at")}
                 "retrieved_results": results
             }
 
+        # =================================================
+        # 10. FALLBACK
+        # =================================================
 
-        # -------------------------------------------------
-        # 7. FALLBACK
-        # -------------------------------------------------
+        answer = (
+            "I need a little more information "
+            "to help with that."
+        )
+
+        self.save_exchange(
+            conversation_id=conversation_id,
+            user_message=message,
+            assistant_message=answer,
+            intent=intent,
+            channel="api"
+        )
 
         return {
             "success": True,
+            "conversation_id": conversation_id,
             "intent": intent,
             "confidence": confidence,
             "source": "unknown",
-            "message": (
-                "I need a little more information "
-                "to help with that."
-            )
+            "answer": answer
         }

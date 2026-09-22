@@ -53,6 +53,7 @@ chat_service = ChatService()
 class ChatRequest(BaseModel):
     message: str
     customer_phone: str | None = None
+    conversation_id: str | None = None
 
 
 # ---------------------------------------------------------
@@ -107,7 +108,8 @@ def chat(request: ChatRequest):
 
     return chat_service.process_message(
         message=request.message,
-        customer_phone=request.customer_phone
+        customer_phone=request.customer_phone,
+        conversation_id=request.conversation_id
     )
 # =========================================================
 # TEST: GROQ
@@ -129,6 +131,36 @@ It provides cooking products and recipes.
         "answer": answer
     }
 
+#==========================================================
+# Test: Memory Context Builder
+#==========================================================
+@app.post("/test/memory")
+def test_memory(request: ChatRequest):
+
+    from app.memory.conversation_memory import ConversationMemory
+
+    memory = ConversationMemory()
+
+    conversation_id = (
+        request.conversation_id
+        or "memory_test_001"
+    )
+
+    memory.save_message(
+        conversation_id=conversation_id,
+        role="user",
+        message=request.message,
+        channel="api"
+    )
+
+    messages = memory.get_recent_messages(
+        conversation_id
+    )
+
+    return {
+        "conversation_id": conversation_id,
+        "messages": messages
+    }
 
 # =========================================================
 # TEST: CUSTOMERS
