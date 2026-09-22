@@ -17,7 +17,7 @@ load_dotenv(BASE_DIR / ".env")
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
-
+from app.services.chat_service import ChatService
 from app.llm.groq_client import generate_response
 from app.classifier.predict import IntentClassifier
 from app.rag.retriever import CookdRetriever
@@ -43,6 +43,7 @@ app = FastAPI(title="Cookd AI RAG MVP")
 
 classifier = IntentClassifier()
 retriever = CookdRetriever()
+chat_service = ChatService()
 
 
 # ---------------------------------------------------------
@@ -104,219 +105,10 @@ def health():
 @app.post("/chat")
 def chat(request: ChatRequest):
 
-    # -----------------------------------------------------
-    # 1. CLASSIFY USER MESSAGE
-    # -----------------------------------------------------
-
-    prediction = classifier.predict(request.message)
-
-    intent = prediction["intent"]
-    confidence = prediction["confidence"]
-
-
-    # =====================================================
-    # 2. ORDER TRACKING → SUPABASE → GROQ
-    # =====================================================
-
-    if intent == "order_tracking":
-
-        # Customer phone required
-        if not request.customer_phone:
-
-            return {
-                "success": False,
-                "intent": intent,
-                "confidence": confidence,
-                "error": "customer_phone_required",
-                "message": (
-                    "Please provide your phone number "
-                    "so I can check your order."
-                )
-            }
-
-        # Get customer + latest order
-        result = track_latest_order_by_phone(
-            request.customer_phone
-        )
-
-        # Customer/order not found
-        if not result["success"]:
-
-            return {
-                "success": False,
-                "intent": intent,
-                "confidence": confidence,
-                "error": result["error"]
-            }
-
-        customer = result["customer"]
-        order = result["order"]
-
-        # Build verified Supabase context
-        context = f"""
-CUSTOMER INFORMATION:
-
-Name: {customer.get("name")}
-City: {customer.get("city")}
-
-
-ORDER INFORMATION:
-
-Order ID: {order.get("id")}
-Status: {order.get("status")}
-Total: ₹{order.get("total_inr")}
-Tracking Number: {order.get("tracking_number")}
-Order Created: {order.get("created_at")}
-Last Updated: {order.get("updated_at")}
-"""
-
-        # Send verified information to Groq
-        answer = generate_response(
-            user_message=request.message,
-            context=context
-        )
-
-        return {
-            "success": True,
-            "intent": intent,
-            "confidence": confidence,
-            "source": "supabase",
-            "answer": answer,
-            "order": order
-        }
-
-
-    # =====================================================
-    # 3. PRODUCT QUESTION → CHROMA → GROQ
-    # =====================================================
-
-    if intent == "product_question":
-
-        results = retriever.search(
-            request.message,
-            top_k=5,
-            doc_type="product"
-        )
-
-        context = build_rag_context(results)
-
-        answer = generate_response(
-            user_message=request.message,
-            context=context
-        )
-
-        return {
-            "success": True,
-            "intent": intent,
-            "confidence": confidence,
-            "source": "chroma",
-            "answer": answer,
-            "retrieved_results": results
-        }
-
-
-    # =====================================================
-    # 4. RECIPE FINDING → CHROMA → GROQ
-    # =====================================================
-
-    if intent == "recipe_finding":
-
-        results = retriever.search(
-            request.message,
-            top_k=5,
-            doc_type="recipe"
-        )
-
-        context = build_rag_context(results)
-
-        answer = generate_response(
-            user_message=request.message,
-            context=context
-        )
-
-        return {
-            "success": True,
-            "intent": intent,
-            "confidence": confidence,
-            "source": "chroma",
-            "answer": answer,
-            "retrieved_results": results
-        }
-
-
-    # =====================================================
-    # 5. GENERAL FAQ → CHROMA → GROQ
-    # =====================================================
-
-    if intent == "general_faq":
-
-        results = retriever.search(
-            request.message,
-            top_k=5,
-            doc_type="faq"
-        )
-
-        context = build_rag_context(results)
-
-        answer = generate_response(
-            user_message=request.message,
-            context=context
-        )
-
-        return {
-            "success": True,
-            "intent": intent,
-            "confidence": confidence,
-            "source": "chroma",
-            "answer": answer,
-            "retrieved_results": results
-        }
-
-
-    # =====================================================
-    # 6. RECOMMENDATION → CHROMA → GROQ
-    # =====================================================
-
-    if intent == "recommendation":
-
-        results = retriever.search(
-            request.message,
-            top_k=5
-        )
-
-        context = build_rag_context(results)
-
-        answer = generate_response(
-            user_message=request.message,
-            context=context
-        )
-
-        return {
-            "success": True,
-            "intent": intent,
-            "confidence": confidence,
-            "source": "chroma",
-            "answer": answer,
-            "retrieved_results": results
-        }
-
-
-    # =====================================================
-    # 7. FALLBACK
-    # =====================================================
-
-    return {
-        "success": True,
-        "intent": intent,
-        "confidence": confidence,
-        "source": "unknown",
-        "message": (
-            "I need a little more information "
-            "to help with that."
-        )
-    }
-
-
+    return chat_service.process_message(
+        message=request.message,
+        customer_phone=request.customer_phone
+    )
 # =========================================================
 # TEST: GROQ
 # =========================================================
