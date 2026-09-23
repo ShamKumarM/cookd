@@ -210,3 +210,46 @@ def search_products(query: str):
 
     return response.data
 
+#=====================================================
+#Human Handoff
+#=====================================================
+def get_handoff_status(conversation_id: str):
+
+    response = (
+        supabase
+        .table("conversation_handoffs")
+        .select("*")
+        .eq("conversation_id", conversation_id)
+        .limit(1)
+        .execute()
+    )
+
+    if not response.data:
+        return None
+
+    return response.data[0]
+
+def request_human_handoff(
+    conversation_id: str,
+    customer_id: str | None = None,
+    reason: str | None = None
+):
+
+    data = {
+        "conversation_id": conversation_id,
+        "status": "human_requested",
+        "reason": reason,
+    }
+
+    if customer_id:
+        data["customer_id"] = customer_id
+
+    response = (
+        supabase
+        .table("conversation_handoffs")
+        .upsert(data)
+        .execute()
+    )
+
+    return response.data
+

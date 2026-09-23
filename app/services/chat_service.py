@@ -5,9 +5,14 @@ from app.classifier.confidence import ConfidenceDecision
 from app.rag.retriever import CookdRetriever
 from app.llm.groq_client import generate_response
 from app.memory.conversation_memory import ConversationMemory
+
 from app.tools.supabase_tools import (
     track_latest_order_by_phone,
+    get_handoff_status,
+    request_human_handoff,
 )
+
+from app.handoff.handoff_manager import HandoffManager
 
 
 class ChatService:
@@ -18,6 +23,7 @@ class ChatService:
         self.retriever = CookdRetriever()
         self.confidence_checker = ConfidenceDecision()
         self.memory = ConversationMemory()
+        self.handoff_manager = HandoffManager()
 
     # =====================================================
     # RAG CONTEXT BUILDER
@@ -106,6 +112,41 @@ VERIFIED INFORMATION:
         )
 
     # =====================================================
+    # SAVE HANDOFF EXCHANGE
+    # =====================================================
+
+    def save_handoff_exchange(
+        self,
+        conversation_id,
+        user_message,
+        assistant_message,
+        channel="api",
+        customer_id=None
+    ):
+
+        # Save user request
+        self.memory.save_message(
+            conversation_id=conversation_id,
+            role="user",
+            message=user_message,
+            customer_id=customer_id,
+            intent="human_handoff",
+            channel=channel,
+            ai_resolved=False
+        )
+
+        # Save AI handoff acknowledgement
+        self.memory.save_message(
+            conversation_id=conversation_id,
+            role="assistant",
+            message=assistant_message,
+            customer_id=customer_id,
+            intent="human_handoff",
+            channel=channel,
+            ai_resolved=False
+        )
+
+    # =====================================================
     # MAIN CHAT PROCESSOR
     # =====================================================
 
@@ -113,7 +154,8 @@ VERIFIED INFORMATION:
         self,
         message: str,
         customer_phone: str | None = None,
-        conversation_id: str | None = None
+        conversation_id: str | None = None,
+        channel: str = "api"
     ):
 
         # -------------------------------------------------
@@ -126,9 +168,128 @@ VERIFIED INFORMATION:
                 uuid.uuid4()
             )
 
-        # -------------------------------------------------
-        # 1. CLASSIFY USER MESSAGE
-        # -------------------------------------------------
+        # =================================================
+        # 1. CHECK EXISTING HUMAN HANDOFF
+        # =================================================
+        #
+        # IMPORTANT:
+        # If this conversation is already with a human,
+        # the AI must not continue answering normally.
+        #
+
+        handoff_status = get_handoff_status(
+            conversation_id
+        )
+
+        if handoff_status:
+
+            status = handoff_status.get(
+                "status"
+            )
+
+            # -------------------------------------------------
+            # HUMAN REQUESTED / WAITING FOR AGENT
+            # -------------------------------------------------
+
+            if status == "human_requested":
+
+                answer = (
+                    "Your request has been sent to our "
+                    "support team. A human agent will "
+                    "take over shortly. 🙏"
+                )
+
+                # Log the incoming message
+                self.memory.save_message(
+                    conversation_id=conversation_id,
+                    role="user",
+                    message=message,
+                    intent="human_handoff",
+                    channel=channel,
+                    ai_resolved=False
+                )
+
+                return {
+                    "success": True,
+                    "conversation_id": conversation_id,
+                    "handoff": True,
+                    "status": "human_requested",
+                    "answer": answer
+                }
+
+            # -------------------------------------------------
+            # HUMAN AGENT IS ACTIVE
+            # -------------------------------------------------
+
+            if status == "human_active":
+
+                answer = (
+                    "You're connected with our support team. "
+                    "A human agent will assist you here. 🙏"
+                )
+
+                self.memory.save_message(
+                    conversation_id=conversation_id,
+                    role="user",
+                    message=message,
+                    intent="human_handoff",
+                    channel=channel,
+                    ai_resolved=False
+                )
+
+                return {
+                    "success": True,
+                    "conversation_id": conversation_id,
+                    "handoff": True,
+                    "status": "human_active",
+                    "answer": answer
+                }
+
+            # -------------------------------------------------
+            # RESOLVED
+            # -------------------------------------------------
+            #
+            # If status is resolved, allow the conversation
+            # to go back through the AI normally.
+            #
+
+        # =================================================
+        # 2. DETECT EXPLICIT HUMAN REQUEST
+        # =================================================
+        #
+        # This happens BEFORE classifier/Groq.
+        #
+
+        if self.handoff_manager.should_handoff(message):
+
+            request_human_handoff(
+                conversation_id=conversation_id,
+                reason="customer_requested_human"
+            )
+
+            answer = (
+                "Absolutely. I'll connect you with a "
+                "human support agent. 🙏"
+            )
+
+            self.save_handoff_exchange(
+                conversation_id=conversation_id,
+                user_message=message,
+                assistant_message=answer,
+                channel=channel
+            )
+
+            return {
+                "success": True,
+                "conversation_id": conversation_id,
+                "handoff": True,
+                "status": "human_requested",
+                "answer": answer
+            }
+
+        # =================================================
+        # 3. CLASSIFY USER MESSAGE
+        # =================================================
 
         prediction = self.classifier.predict(
             message
@@ -137,25 +298,25 @@ VERIFIED INFORMATION:
         intent = prediction["intent"]
         confidence = prediction["confidence"]
 
-        # -------------------------------------------------
-        # 2. CONFIDENCE CHECK
-        # -------------------------------------------------
+        # =================================================
+        # 4. CONFIDENCE CHECK
+        # =================================================
 
         decision = self.confidence_checker.evaluate(
             prediction
         )
 
-        # -------------------------------------------------
-        # 3. LOAD PREVIOUS CONVERSATION
-        # -------------------------------------------------
+        # =================================================
+        # 5. LOAD PREVIOUS CONVERSATION
+        # =================================================
 
         memory_context = self.memory.build_context(
             conversation_id
         )
 
-        # -------------------------------------------------
-        # 4. HANDLE LOW CONFIDENCE
-        # -------------------------------------------------
+        # =================================================
+        # 6. HANDLE LOW CONFIDENCE
+        # =================================================
 
         if decision["action"] == "clarify":
 
@@ -170,7 +331,7 @@ VERIFIED INFORMATION:
                 user_message=message,
                 assistant_message=answer,
                 intent=intent,
-                channel="api"
+                channel=channel
             )
 
             return {
@@ -184,7 +345,7 @@ VERIFIED INFORMATION:
             }
 
         # =================================================
-        # 5. ORDER TRACKING → SUPABASE
+        # 7. ORDER TRACKING → SUPABASE
         # =================================================
 
         if intent == "order_tracking":
@@ -201,7 +362,7 @@ VERIFIED INFORMATION:
                     user_message=message,
                     assistant_message=answer,
                     intent=intent,
-                    channel="api"
+                    channel=channel
                 )
 
                 return {
@@ -229,7 +390,7 @@ VERIFIED INFORMATION:
                     user_message=message,
                     assistant_message=answer,
                     intent=intent,
-                    channel="api"
+                    channel=channel
                 )
 
                 return {
@@ -279,7 +440,7 @@ Last Updated: {order.get("updated_at")}
                 assistant_message=answer,
                 intent=intent,
                 customer_id=customer_id,
-                channel="api"
+                channel=channel
             )
 
             return {
@@ -293,7 +454,7 @@ Last Updated: {order.get("updated_at")}
             }
 
         # =================================================
-        # 6. PRODUCT QUESTION → CHROMA
+        # 8. PRODUCT QUESTION → CHROMA
         # =================================================
 
         if intent == "product_question":
@@ -323,7 +484,7 @@ Last Updated: {order.get("updated_at")}
                 user_message=message,
                 assistant_message=answer,
                 intent=intent,
-                channel="api"
+                channel=channel
             )
 
             return {
@@ -337,7 +498,7 @@ Last Updated: {order.get("updated_at")}
             }
 
         # =================================================
-        # 7. RECIPE FINDING → CHROMA
+        # 9. RECIPE FINDING → CHROMA
         # =================================================
 
         if intent == "recipe_finding":
@@ -367,7 +528,7 @@ Last Updated: {order.get("updated_at")}
                 user_message=message,
                 assistant_message=answer,
                 intent=intent,
-                channel="api"
+                channel=channel
             )
 
             return {
@@ -380,8 +541,8 @@ Last Updated: {order.get("updated_at")}
                 "retrieved_results": results
             }
 
-        # =================================================
-        # 8. GENERAL FAQ → CHROMA
+                # =================================================
+        # 10. GENERAL FAQ → CHROMA
         # =================================================
 
         if intent == "general_faq":
@@ -411,7 +572,7 @@ Last Updated: {order.get("updated_at")}
                 user_message=message,
                 assistant_message=answer,
                 intent=intent,
-                channel="api"
+                channel=channel
             )
 
             return {
@@ -423,9 +584,8 @@ Last Updated: {order.get("updated_at")}
                 "answer": answer,
                 "retrieved_results": results
             }
-
         # =================================================
-        # 9. RECOMMENDATION → CHROMA
+        # 11. RECOMMENDATION → CHROMA
         # =================================================
 
         if intent == "recommendation":
@@ -454,7 +614,7 @@ Last Updated: {order.get("updated_at")}
                 user_message=message,
                 assistant_message=answer,
                 intent=intent,
-                channel="api"
+                channel=channel
             )
 
             return {
@@ -468,7 +628,7 @@ Last Updated: {order.get("updated_at")}
             }
 
         # =================================================
-        # 10. FALLBACK
+        # 12. FALLBACK
         # =================================================
 
         answer = (
@@ -481,7 +641,7 @@ Last Updated: {order.get("updated_at")}
             user_message=message,
             assistant_message=answer,
             intent=intent,
-            channel="api"
+            channel=channel
         )
 
         return {

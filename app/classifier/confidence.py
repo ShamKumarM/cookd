@@ -3,7 +3,7 @@ class ConfidenceDecision:
     def __init__(
         self,
         min_confidence=0.25,
-        ambiguity_gap=0.08
+        ambiguity_gap=0.03
     ):
         self.min_confidence = min_confidence
         self.ambiguity_gap = ambiguity_gap
