@@ -21,6 +21,7 @@ from app.services.chat_service import ChatService
 from app.llm.groq_client import generate_response
 from app.classifier.predict import IntentClassifier
 from app.rag.retriever import CookdRetriever
+from app.whatsapp.client import send_agent_button
 from app.whatsapp.client import send_text_message
 from app.whatsapp.webhook import router as whatsapp_router
 from app.router import route
@@ -324,6 +325,19 @@ def test_whatsapp():
         "whatsapp_response": result
     }
 
+#=============================================================
+#Test: Send WhatsApp Agent Button
+#=============================================================
+@app.post("/test/whatsapp-agent-button")
+def test_whatsapp_agent_button():
+    result = send_agent_button(
+        recipient_phone="919360343392"
+    )
+
+    return {
+        "success": True,
+        "whatsapp_response": result
+    }
 
 # =========================================================
 # RUN SERVER

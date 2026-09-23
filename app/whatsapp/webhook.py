@@ -56,44 +56,105 @@ async def receive_whatsapp_webhook(request: Request):
         sender_phone = message.get("from")
         message_type = message.get("type")
 
-        if message_type != "text":
-            print("Unsupported message type:", message_type)
-            return {"success": True}
-
-        message_text = message["text"]["body"]
-
         print("Sender:", sender_phone)
-        print("Message:", message_text)
+        print("Message type:", message_type)
 
-        # Stable conversation ID for this WhatsApp user
-        conversation_id = f"whatsapp:{sender_phone}"
+        # =========================================================
+        # NORMAL TEXT MESSAGE
+        # =========================================================
 
-        # Send message through existing Cookd AI pipeline
-        result = chat_service.process_message(
-            message=message_text,
-            customer_phone=sender_phone,
-            conversation_id=conversation_id,
-            channel="whatsapp",
-        )
+        if message_type == "text":
 
-        print("ChatService result:")
-        print(result)
-        answer = result.get("answer")
+            message_text = message["text"]["body"]
 
-        if answer:
-            whatsapp_result = send_text_message(
-                recipient_phone=sender_phone,
-                message=answer,
+            print("Message:", message_text)
+
+            # Stable conversation ID for this WhatsApp user
+            conversation_id = f"whatsapp:{sender_phone}"
+
+            # Send message through existing Cookd AI pipeline
+            result = chat_service.process_message(
+                message=message_text,
+                customer_phone=sender_phone,
+                conversation_id=conversation_id,
+                channel="whatsapp",
             )
 
-            print("WhatsApp send result:")
-            print(whatsapp_result)
+            print("ChatService result:")
+            print(result)
+
+            answer = result.get("answer")
+
+            if answer:
+                whatsapp_result = send_text_message(
+                    recipient_phone=sender_phone,
+                    message=answer,
+                )
+
+                print("WhatsApp send result:")
+                print(whatsapp_result)
+
+        # =========================================================
+        # INTERACTIVE MESSAGE
+        # =========================================================
+
+        elif message_type == "interactive":
+
+            interactive = message.get("interactive", {})
+            interactive_type = interactive.get("type")
+
+            print("Interactive type:", interactive_type)
+
+            # Button reply
+            if interactive_type == "button_reply":
+
+                button_reply = interactive.get(
+                    "button_reply",
+                    {}
+                )
+
+                button_id = button_reply.get("id")
+                button_title = button_reply.get("title")
+
+                print("Button ID:", button_id)
+                print("Button title:", button_title)
+
+                # Connect with Agent button
+                if button_id == "connect_with_agent":
+
+                    print("🤝 HUMAN HANDOFF BUTTON CLICKED")
+
+                    return {
+                        "success": True,
+                        "event": "human_handoff_requested",
+                    }
+
+                print("Unknown button:", button_id)
+
+            else:
+                print(
+                    "Unsupported interactive type:",
+                    interactive_type
+                )
+
+        # =========================================================
+        # OTHER MESSAGE TYPES
+        # =========================================================
+
+        else:
+
+            print(
+                "Unsupported message type:",
+                message_type
+            )
 
     except (KeyError, IndexError, TypeError) as e:
+
         print("Webhook parsing error:", e)
 
     except Exception as e:
-        print("ChatService error:", e)
+
+        print("Webhook processing error:", e)
 
     print("======================================\n")
 
