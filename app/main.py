@@ -21,6 +21,8 @@ from app.services.chat_service import ChatService
 from app.llm.groq_client import generate_response
 from app.classifier.predict import IntentClassifier
 from app.rag.retriever import CookdRetriever
+from app.whatsapp.client import send_text_message
+from app.whatsapp.webhook import router as whatsapp_router
 from app.router import route
 
 from app.tools.supabase_tools import (
@@ -40,6 +42,8 @@ from app.tools.supabase_tools import (
 # ---------------------------------------------------------
 
 app = FastAPI(title="Cookd AI RAG MVP")
+
+app.include_router(whatsapp_router)
 
 classifier = IntentClassifier()
 retriever = CookdRetriever()
@@ -302,6 +306,22 @@ def search(req: ChatRequest):
             req.message,
             5
         )
+    }
+
+#========================================================
+#Test: Send WhatsApp Message
+#========================================================
+@app.post("/test/whatsapp")
+def test_whatsapp():
+
+    result = send_text_message(
+        recipient_phone="919360343392",
+        message="🤖 Hello from Cookd AI! WhatsApp connection is working."
+    )
+
+    return {
+        "success": True,
+        "whatsapp_response": result
     }
 
 
