@@ -23,6 +23,8 @@ from app.classifier.predict import IntentClassifier
 from app.rag.retriever import CookdRetriever
 from app.whatsapp.client import send_agent_button
 from app.whatsapp.client import send_text_message
+from app.whatsapp.client import send_main_menu
+from app.conversation.conversation_state import ConversationStateManager
 from app.whatsapp.webhook import router as whatsapp_router
 from app.router import route
 
@@ -49,6 +51,7 @@ app.include_router(whatsapp_router)
 classifier = IntentClassifier()
 retriever = CookdRetriever()
 chat_service = ChatService()
+state_manager = ConversationStateManager()
 
 
 # ---------------------------------------------------------
@@ -337,6 +340,64 @@ def test_whatsapp_agent_button():
     return {
         "success": True,
         "whatsapp_response": result
+    }
+#=========================================================
+#Test: Send WhatsApp Main Menu
+#=========================================================
+@app.post("/test/whatsapp-menu")
+def test_whatsapp_menu():
+
+    result = send_main_menu(
+        recipient_phone="919360343392"
+    )
+
+    return {
+        "success": True,
+        "whatsapp_response": result
+    }
+
+#=========================================================
+#Test: Conversation State Manager
+#=========================================================
+@app.get("/test/conversation-state")
+def test_conversation_state():
+
+    conversation_id = "test:123"
+
+    session = state_manager.get_or_create_session(
+        conversation_id=conversation_id
+    )
+
+    return {
+        "success": True,
+        "session": session,
+    }
+
+@app.get("/test/conversation-state/track")
+def test_track_state():
+
+    result = state_manager.update_state(
+        conversation_id="test:123",
+        state="track_orders",
+        current_action="track_orders",
+    )
+
+    return {
+        "success": True,
+        "result": result,
+    }
+
+@app.get("/test/conversation-state/reset")
+def test_reset_conversation_state():
+
+    result = state_manager.reset_session(
+        conversation_id="test:123"
+    )
+
+    return {
+        "success": True,
+        "message": "Session reset",
+        "result": result,
     }
 
 # =========================================================

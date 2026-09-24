@@ -8,7 +8,6 @@ from app.whatsapp.client import (
     send_text_message,
     send_main_menu,
     send_resolution_buttons,
-    send_back_to_main_menu_button,
 )
 from app.whatsapp.button_router import WhatsAppButtonRouter
 from app.conversation.conversation_state import (
@@ -322,28 +321,17 @@ async def receive_whatsapp_webhook(
             # -------------------------------------------------
 
             if result.get("resolved") is True:
-
-                resolution_result = send_resolution_buttons(
-                    recipient_phone=sender_phone
+                resolution_result = (
+                    send_resolution_buttons(
+                        recipient_phone=sender_phone
+                    )
                 )
 
                 print(
                     "Resolution buttons result:"
                 )
-
                 print(resolution_result)
 
-            elif current_action != "human_support":
-
-                fallback_button_result = send_back_to_main_menu_button(
-                    recipient_phone=sender_phone
-                )
-
-                print(
-                    "Fallback Back to Main Menu result:"
-                )
-
-                print(fallback_button_result)
             return {
                 "success": True,
                 "event": "state_based_text_processed",
