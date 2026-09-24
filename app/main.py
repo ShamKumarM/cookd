@@ -19,8 +19,6 @@ from pydantic import BaseModel
 import uvicorn
 from app.services.chat_service import ChatService
 from app.llm.groq_client import generate_response
-from app.classifier.predict import IntentClassifier
-from app.rag.retriever import CookdRetriever
 from app.whatsapp.client import send_agent_button
 from app.whatsapp.client import send_text_message
 from app.whatsapp.client import send_main_menu
@@ -48,8 +46,6 @@ app = FastAPI(title="Cookd AI RAG MVP")
 
 app.include_router(whatsapp_router)
 
-classifier = IntentClassifier()
-retriever = CookdRetriever()
 chat_service = ChatService()
 state_manager = ConversationStateManager()
 
@@ -271,7 +267,7 @@ def test_classifier(request: ChatRequest):
 @app.post("/route")
 def route_message(req: ChatRequest):
 
-    pred = classifier.predict(req.message)
+    pred = chat_service.classifier.predict(req.message)
 
     decision = route(
         pred["intent"],
@@ -286,7 +282,7 @@ def route_message(req: ChatRequest):
 
     if decision["knowledge_source"]:
 
-        out["retrieval"] = retriever.search(
+        out["retrieval"] = chat_service.retriever.search(
             req.message,
             5,
             None
@@ -306,10 +302,10 @@ def search(req: ChatRequest):
 
     return {
         "query": req.message,
-        "results": retriever.search(
-            req.message,
-            5
-        )
+        "results": chat_service.retriever.search(
+        req.message,
+        5
+    )
     }
 
 #========================================================
